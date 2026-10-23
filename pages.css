@@ -392,3 +392,8 @@ a.arch-box:hover { transform: translateY(-2px); background: #fff; }
 .legal-body h3 { margin: 26px 0 8px; font-family: var(--display); font-weight: 500; font-size: 18px; letter-spacing: -0.03em; }
 .legal-body p { margin: 0 0 12px; color: var(--ink-2); line-height: 1.7; font-size: 15.5px; }
 .legal-body a { font-weight: 600; }
+
+/* ---------- 404 ---------- */
+.nf { min-height: 62vh; display: grid; align-items: center; }
+.nf-code { margin: 0 0 8px; font-family: var(--display); font-weight: 800; font-size: clamp(90px, 16vw, 200px); line-height: 0.9; letter-spacing: -0.06em; color: color-mix(in oklab, var(--tint) 45%, transparent); -webkit-text-stroke: 1px rgba(0, 0, 0, 0.12); }
+.nf-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 30px; }

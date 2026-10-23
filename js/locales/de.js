@@ -532,4 +532,10 @@ export default {
   'legal.p3Text': 'Schriften, Three.js und alle anderen Bibliotheken werden von dieser Website ausgeliefert. Ihre IP-Adresse wird weder an Google noch an CDNs oder sonst jemanden übertragen. Die einzigen externen Links sind die „Route“-Schaltflächen, die Google Maps öffnen, wenn Sie darauf klicken.',
   'legal.p4': 'Ihre Rechte',
   'legal.p4Text': 'Nach der DSGVO haben Sie das Recht auf Auskunft, Berichtigung und Löschung Ihrer Daten. Da alle Daten auf Ihrem Gerät bleiben, üben Sie diese Rechte selbst in Ihren Browsereinstellungen aus.',
+  // 404
+  'meta.nf.title': 'Seite nicht gefunden — Luna',
+  'nf.title': 'Diese Seite ist in den Kissen <em>versunken</em>',
+  'nf.text': 'Vielleicht ist der Link veraltet oder falsch geschrieben. Die Sofas sind aber alle noch da.',
+  'nf.home': 'Sofa gestalten',
+  'nf.looks': 'Fertige Looks ansehen',
 };

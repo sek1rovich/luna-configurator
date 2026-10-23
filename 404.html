@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <!-- served for any missing path, so resolve assets from the site root (GitHub Pages lives in a sub-folder) -->
+  <script>document.write('<base href="' + (location.hostname.endsWith('github.io') ? '/luna-configurator/' : '/') + '">');</script>
+  <title data-i18n="meta.nf.title">Page not found — Luna</title>
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#efebe4" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/fonts/fonts.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="site.css" />
+  <link rel="stylesheet" href="pages.css" />
+</head>
+<body data-page="notfound">
+  <header class="topbar page-topbar" id="topbar"></header>
+
+  <main class="nf">
+    <section class="page-hero">
+      <p class="nf-code" aria-hidden="true">404</p>
+      <h1 class="page-title" data-i18n-html="nf.title">This page has <em>sunk</em> into the cushions</h1>
+      <p class="page-lede" data-i18n="nf.text">The link may be old or mistyped. The sofas, however, are all still here.</p>
+      <div class="nf-actions">
+        <a class="btn btn-dark" href="index.html"><span data-i18n="nf.home">Build a sofa</span> <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="armchairs.html" data-i18n="nf.looks">See ready-made looks</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer"></footer>
+  <script type="module" src="js/shell.js"></script>
+</body>
+</html>
