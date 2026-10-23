@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title data-i18n="meta.legal.title">Imprint and privacy — Luna</title>
+  <meta name="description" data-i18n-attr="content:meta.legal.desc" content="Imprint and privacy policy of the Luna demo site: no cookies, no tracking, no data leaves your browser." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#efebe4" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/fonts/fonts.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="site.css" />
+  <link rel="stylesheet" href="pages.css" />
+</head>
+<body data-page="legal">
+  <header class="topbar page-topbar" id="topbar"></header>
+
+  <main class="legal">
+    <section class="page-hero">
+      <p class="eyebrow"><span class="dot"></span><span data-i18n="legal.eyebrow">Legal</span></p>
+      <h1 class="page-title" data-i18n-html="legal.title">Imprint &amp; <em>privacy</em></h1>
+      <p class="page-lede" data-i18n="legal.lede">Luna is a fictional brand built as a portfolio project. Nothing here is sold, and nothing you enter leaves your browser.</p>
+    </section>
+
+    <section class="section legal-body" id="imprint">
+      <h2 class="section-title" data-i18n="legal.imprint">Imprint</h2>
+      <p data-i18n="legal.imprintText">This website is a non-commercial demonstration of frontend and 3D development. Luna, its products, prices, showrooms, addresses and phone numbers are invented. The project author is responsible for the content.</p>
+      <p><span data-i18n="legal.author">Author</span>: <a id="authorLink" href="#" target="_blank" rel="noopener"></a> · <span data-i18n="legal.contact">Contact</span>: hello@luna.example</p>
+    </section>
+
+    <section class="section legal-body" id="privacy">
+      <h2 class="section-title" data-i18n="legal.privacy">Privacy policy</h2>
+      <h3 data-i18n="legal.p1">What we store</h3>
+      <p data-i18n="legal.p1Text">Your cart, your language choice and any demo orders or showroom bookings are saved in your browser’s localStorage. They never reach a server, and you can delete them at any time by clearing this site’s data.</p>
+      <h3 data-i18n="legal.p2">Cookies and tracking</h3>
+      <p data-i18n="legal.p2Text">None. There are no cookies, no analytics, no advertising pixels and no social widgets — which is why you didn’t see a cookie banner.</p>
+      <h3 data-i18n="legal.p3">Third parties</h3>
+      <p data-i18n="legal.p3Text">Fonts, Three.js and every other library are served from this website, so your IP address is not shared with Google, CDNs or anyone else. The only external links are the “Directions” buttons, which open Google Maps when you click them.</p>
+      <h3 data-i18n="legal.p4">Your rights</h3>
+      <p data-i18n="legal.p4Text">Under the GDPR you have the right to access, correct and delete your data. Because all data stays on your device, you exercise these rights yourself in your browser settings.</p>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer"></footer>
+  <script type="module">
+    import { AUTHOR } from './js/shell.js';
+    const a = document.getElementById('authorLink');
+    a.href = AUTHOR.url;
+    a.textContent = AUTHOR.name;
+  </script>
+</body>
+</html>

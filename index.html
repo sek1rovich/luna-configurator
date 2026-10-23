@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title data-i18n="meta.sofas.title">Luna — 3D sofa configurator</title>
+  <meta name="description" data-i18n-attr="content:meta.sofas.desc" content="Design your Luna sofa in 3D: size, fabric, colour, legs and details — the price updates instantly." />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Luna — 3D sofa configurator" />
+  <meta property="og:description" content="Change size, fabric, colour and legs — the price updates as you go. Try it in your room with AR." />
+  <meta property="og:image" content="https://sek1rovich.github.io/luna-configurator/assets/og.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta property="og:url" content="https://sek1rovich.github.io/luna-configurator/" />
+  <link rel="canonical" href="https://sek1rovich.github.io/luna-configurator/" />
+  <meta name="theme-color" content="#efebe4" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/fonts/fonts.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="site.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./vendor/three/build/three.module.js",
+        "three/addons/": "./vendor/three/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body data-page="sofas">
+  <div class="loader" id="loader">
+    <div class="loader-mark">luna<span>.</span></div>
+    <div class="loader-bar"><i></i></div>
+    <p data-i18n="cfg.loader">Stitching your sofa…</p>
+  </div>
+
+  <div class="app">
+    <header class="topbar" id="topbar"></header>
+
+    <main class="stage" id="stage">
+      <div class="bg-word" id="bgWord" aria-hidden="true">LUNA</div>
+      <div class="viewport" id="viewport"></div>
+
+      <div class="stage-info">
+        <p class="eyebrow"><span class="dot"></span><span data-i18n="cfg.eyebrow">Collection 2026 · Handmade in Lviv</span></p>
+        <h1 data-i18n-html="cfg.title">The <em>Luna</em> sofa</h1>
+        <p class="lede" data-i18n="cfg.lede">Design the sofa of your dreams. Every detail changes live — just click on it.</p>
+      </div>
+
+      <div class="hint" id="hint">
+        <svg viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/><circle cx="12" cy="12" r="3"/></svg>
+        <span data-i18n="cfg.hint">Drag to rotate · Scroll to zoom · Click a part</span>
+      </div>
+
+      <div class="toolbar" role="toolbar" data-i18n-attr="aria-label:cfg.tool.view" aria-label="View">
+        <button class="tool is-on" id="autoBtn" data-i18n-attr="title:cfg.tool.auto;aria-label:cfg.tool.auto" title="Auto-rotate" aria-label="Auto-rotate" aria-pressed="true">
+          <svg viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v4h-4"/></svg>
+        </button>
+        <span class="tool-sep"></span>
+        <button class="tool tool-text is-on" data-view="hero">3/4</button>
+        <button class="tool tool-text" data-view="front" data-i18n="cfg.view.front">Front</button>
+        <button class="tool tool-text" data-view="side" data-i18n="cfg.view.side">Side</button>
+        <button class="tool tool-text" data-view="legs" data-i18n="cfg.view.legs">Legs</button>
+        <span class="tool-sep"></span>
+        <button class="tool" id="dimsBtn" data-i18n-attr="title:cfg.tool.dims;aria-label:cfg.tool.dims" title="Dimensions" aria-label="Dimensions" aria-pressed="false">
+          <svg viewBox="0 0 24 24"><path d="M3 17 17 3l4 4L7 21l-4-4Z"/><path d="m7 13 2 2M10 10l2 2M13 7l2 2"/></svg>
+        </button>
+        <button class="tool" id="shotBtn" data-i18n-attr="title:cfg.tool.photo;aria-label:cfg.tool.photo" title="Save photo" aria-label="Save photo">
+          <svg viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4V8Z"/><circle cx="12" cy="13" r="3.5"/></svg>
+        </button>
+        <button class="tool" id="shareBtn" data-i18n-attr="title:cfg.tool.share;aria-label:cfg.tool.share" title="Share this configuration" aria-label="Share this configuration">
+          <svg viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="m8.2 10.8 7.6-3.6M8.2 13.2l7.6 3.6"/></svg>
+        </button>
+      </div>
+
+      <button class="ar-pill" id="arBtn">
+        <span class="ar-pill-icon"><svg viewBox="0 0 24 24"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9L12 3Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg></span>
+        <span><b data-i18n="ar.pill">In your room</b><small data-i18n="ar.pillSub">AR · true to size</small></span>
+      </button>
+
+      <div class="tooltip" id="tooltip"></div>
+    </main>
+
+    <aside class="panel" id="panel">
+      <div class="panel-scroll" id="panelScroll">
+        <section class="block presets">
+          <div class="block-head"><h2 data-i18n="cfg.inspiration">Inspiration</h2><span class="block-val" data-i18n="cfg.inspirationSub">ready-made looks</span></div>
+          <div class="chips" id="presets"></div>
+        </section>
+
+        <section class="block" id="sec-size">
+          <div class="block-head"><h2><i>01</i><span data-i18n="cfg.sec.size">Size</span></h2><span class="block-val" id="val-size"></span></div>
+          <div class="grid grid-3" id="opt-size"></div>
+          <div class="row">
+            <span class="row-label" data-i18n="cfg.arms">Arms</span>
+            <div class="seg" id="opt-arms"></div>
+          </div>
+          <div class="row">
+            <span class="row-label" data-i18n="cfg.depth">Seat depth</span>
+            <div class="seg" id="opt-depth"></div>
+          </div>
+        </section>
+
+        <section class="block" id="sec-material">
+          <div class="block-head"><h2><i>02</i><span data-i18n="cfg.sec.material">Upholstery</span></h2><span class="block-val" id="val-material"></span></div>
+          <div class="grid grid-2" id="opt-material"></div>
+          <div class="swatches" id="opt-color"></div>
+        </section>
+
+        <section class="block" id="sec-legs">
+          <div class="block-head"><h2><i>03</i><span data-i18n="cfg.sec.legs">Legs</span></h2><span class="block-val" id="val-legs"></span></div>
+          <div class="grid grid-3" id="opt-legStyle"></div>
+          <div class="finishes" id="opt-legFinish"></div>
+        </section>
+
+        <section class="block" id="sec-pillows">
+          <div class="block-head"><h2><i>04</i><span data-i18n="cfg.sec.details">Details</span></h2><span class="block-val" id="val-pillows"></span></div>
+          <div class="row">
+            <span class="row-label"><span data-i18n="cfg.piping">Piping</span> <small data-i18n="cfg.pipingSub">trim along the seams</small></span>
+            <div class="seg" id="opt-piping"></div>
+          </div>
+          <div class="row">
+            <span class="row-label"><span data-i18n="cfg.back">Back</span> <small id="tuftingNote"></small></span>
+            <div class="seg" id="opt-tufting"></div>
+          </div>
+          <div class="row">
+            <span class="row-label"><span data-i18n="cfg.pillows">Cushions</span> <small id="pillowNote"></small></span>
+            <div class="stepper">
+              <button data-step="-1" data-i18n-attr="aria-label:cfg.pillowsLess" aria-label="Fewer cushions">−</button>
+              <output id="pillowCount">0</output>
+              <button data-step="1" data-i18n-attr="aria-label:cfg.pillowsMore" aria-label="More cushions">+</button>
+            </div>
+          </div>
+          <div class="row row-stack">
+            <span class="row-label"><span data-i18n="cfg.accent">Accent colour</span> <small data-i18n="cfg.accentSub">cushions and contrast piping</small></span>
+          </div>
+          <div class="swatches swatches-sm" id="opt-pillowColor"></div>
+        </section>
+      </div>
+
+      <footer class="summary">
+        <div class="summary-top">
+          <div>
+            <span class="summary-label" data-i18n="cfg.yourPrice">Your price</span>
+            <div class="price"><span id="price">€0</span><span class="price-delta" id="priceDelta"></span></div>
+            <span class="monthly" id="monthly"></span>
+          </div>
+          <button class="details-btn" id="detailsBtn" aria-expanded="false"><span data-i18n="cfg.breakdown">Breakdown</span>
+            <svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
+          </button>
+        </div>
+        <div class="breakdown" id="breakdown"></div>
+        <div class="meta" id="meta"></div>
+        <button class="cta" id="ctaBtn">
+          <span class="cta-label" data-i18n="cfg.cta">Add to cart</span>
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+      </footer>
+    </aside>
+  </div>
+
+  <canvas class="confetti" id="confetti"></canvas>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

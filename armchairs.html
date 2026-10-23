@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title data-i18n="meta.armchairs.title">Luna armchairs — six looks in 3D</title>
+  <meta name="description" data-i18n-attr="content:meta.armchairs.desc" content="Six ready-made Luna armchair looks: spin them in 3D, put one in your room with AR, or make it your own in the configurator." />
+  <meta property="og:title" content="Luna armchairs — six looks in 3D" />
+  <meta property="og:description" content="Six ready-made Luna armchair looks in 3D and AR." />
+  <meta property="og:image" content="https://sek1rovich.github.io/luna-configurator/assets/og.png" />
+  <meta property="og:url" content="https://sek1rovich.github.io/luna-configurator/armchairs.html" />
+  <link rel="canonical" href="https://sek1rovich.github.io/luna-configurator/armchairs.html" />
+  <meta name="theme-color" content="#efebe4" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/fonts/fonts.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="site.css" />
+  <link rel="stylesheet" href="pages.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./vendor/three/build/three.module.js",
+        "three/addons/": "./vendor/three/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body data-page="armchairs">
+  <header class="topbar page-topbar" id="topbar"></header>
+
+  <main>
+    <section class="ac-hero" id="acHero">
+      <div class="ac-copy">
+        <p class="eyebrow"><span class="dot"></span><span data-i18n="ac.eyebrow">Armchair collection · 6 ready-made looks</span></p>
+        <h1 class="page-title" data-i18n-html="ac.title">An armchair where time <em>disappears</em></h1>
+        <p class="page-lede" data-i18n="ac.lede">We picked the six looks our clients choose most. Take one as it is — or make it yours in the configurator.</p>
+
+        <article class="ac-current" aria-live="polite">
+          <div class="ac-current-head">
+            <span class="ac-index" id="acIndex">01 / 06</span>
+            <div class="ac-arrows">
+              <button class="icon-btn" id="acPrev" data-i18n-attr="aria-label:ac.prev" aria-label="Previous look"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+              <button class="icon-btn" id="acNext" data-i18n-attr="aria-label:ac.next" aria-label="Next look"><svg viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></svg></button>
+            </div>
+          </div>
+          <h2 id="acName">—</h2>
+          <p id="acMood"></p>
+          <ul class="spec-chips" id="acSpecs"></ul>
+          <div class="ac-buy">
+            <div>
+              <div class="ac-price" id="acPrice">—</div>
+              <span class="monthly" id="acMonthly"></span>
+            </div>
+            <div class="ac-actions">
+              <a class="btn btn-ghost" id="acConfigure" href="index.html" data-i18n="ac.customise">Customise</a>
+              <button class="btn btn-dark" id="acAdd"><span data-i18n="ac.add">Add to cart</span> <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="ac-stage" id="acStage">
+        <div class="ac-word" id="acWord" aria-hidden="true">SOLO</div>
+        <div class="ac-viewport" id="acViewport"></div>
+        <span class="ac-hint" data-i18n="ac.hint">Drag to rotate</span>
+        <button class="ar-pill" id="acAr">
+          <span class="ar-pill-icon"><svg viewBox="0 0 24 24"><path d="M12 3 4 7.5v9L12 21l8-4.5v-9L12 3Z"/><path d="m4 7.5 8 4.5 8-4.5M12 12v9"/></svg></span>
+          <span><b data-i18n="ar.pill">In your room</b><small data-i18n="ar.pillSub">AR · true to size</small></span>
+        </button>
+      </div>
+    </section>
+
+    <section class="section" id="looks">
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="kicker" data-i18n="ac.catalogue">Catalogue</p>
+          <h2 class="section-title" data-i18n="ac.looks">Ready-made looks</h2>
+        </div>
+        <div class="chips" id="acFilters" role="group" data-i18n-attr="aria-label:ac.filter" aria-label="Filter by fabric"></div>
+      </div>
+      <div class="ac-grid" id="acGrid"></div>
+    </section>
+
+    <section class="section features">
+      <div class="feature" data-reveal>
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M4 15h16M6 15V9a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v6M5 15v3M19 15v3"/></svg></div>
+        <h3 data-i18n="ac.f1">Deep seat</h3>
+        <p data-i18n="ac.f1Text">56 cm of seat depth in the Lounge version — sit cross-legged without hunting for a cushion.</p>
+      </div>
+      <div class="feature" data-reveal style="--d: 0.08s">
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M4 8c2.7 0 2.7 3 5.3 3S12 8 14.7 8 17.3 11 20 11M4 14c2.7 0 2.7 3 5.3 3s2.7-3 5.4-3 2.6 3 5.3 3"/></svg></div>
+        <h3 data-i18n="ac.f2">Pocket springs + HR foam</h3>
+        <p data-i18n="ac.f2Text">Individually pocketed springs and high-resilience foam keep their shape for years, not months.</p>
+      </div>
+      <div class="feature" data-reveal style="--d: 0.16s">
+        <div class="feature-icon"><svg viewBox="0 0 24 24"><path d="M12 3v12M8 11l4 4 4-4M5 21h14"/></svg></div>
+        <h3 data-i18n="ac.f3">Removable covers</h3>
+        <p data-i18n="ac.f3Text">Every cover zips off and washes at 30 °C. Tired of the colour? We replace just the cover.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="cta-band" data-reveal>
+        <div>
+          <h2 data-i18n="ac.ctaTitle">Didn’t find yours?</h2>
+          <p data-i18n="ac.ctaText">Build an armchair from scratch: 4 fabrics, 9 colours, 3 leg styles, 4 finishes, piping and capitonné.</p>
+        </div>
+        <a class="btn btn-light" href="index.html#size=armchair&arms=round&depth=lounge&material=boucle&color=sand&legStyle=taper&legFinish=walnut&pillows=1&pillowColor=terracotta&piping=tone&tufting=off"><span data-i18n="ac.ctaBtn">Open the configurator</span> <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer"></footer>
+  <script type="module" src="js/armchairs.js"></script>
+</body>
+</html>

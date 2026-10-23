@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title data-i18n="meta.showroom.title">Luna showrooms — Berlin and Warsaw</title>
+  <meta name="description" data-i18n-attr="content:meta.showroom.desc" content="Sit on a Luna sofa for real: showrooms in Berlin and Warsaw. Book a free one-to-one with a designer." />
+  <meta property="og:title" content="Luna showrooms" />
+  <meta property="og:description" content="Book a visit to a Luna showroom in Berlin or Warsaw." />
+  <meta property="og:image" content="https://sek1rovich.github.io/luna-configurator/assets/og.png" />
+  <meta property="og:url" content="https://sek1rovich.github.io/luna-configurator/showroom.html" />
+  <link rel="canonical" href="https://sek1rovich.github.io/luna-configurator/showroom.html" />
+  <meta name="theme-color" content="#efebe4" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/fonts/fonts.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="site.css" />
+  <link rel="stylesheet" href="pages.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "./vendor/three/build/three.module.js",
+        "three/addons/": "./vendor/three/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body data-page="showroom">
+  <header class="topbar page-topbar" id="topbar"></header>
+
+  <main>
+    <section class="page-hero sr-hero">
+      <p class="eyebrow"><span class="dot"></span><span data-i18n="sr.eyebrow">Showrooms · Berlin and Warsaw</span></p>
+      <h1 class="page-title" data-i18n-html="sr.title">Come and <em>sit</em>. Shoes off is fine</h1>
+      <p class="page-lede" data-i18n="sr.lede">No sales staff following you around. Coffee, 36 fabric samples and a designer who helps you build a sofa for your space — that’s on us.</p>
+      <div class="stats">
+        <div data-reveal><b data-count="2">0</b><span data-i18n="sr.stat1">showrooms</span></div>
+        <div data-reveal style="--d: 0.06s"><b data-count="36">0</b><span data-i18n="sr.stat2">fabric samples</span></div>
+        <div data-reveal style="--d: 0.12s"><b data-count="18">0</b><span data-i18n="sr.stat3">models on the floor</span></div>
+        <div data-reveal style="--d: 0.18s"><b data-count="10">0</b><span data-i18n="sr.stat4">year frame warranty</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="locations" id="locations"></div>
+    </section>
+
+    <section class="section" id="book">
+      <div class="book">
+        <div class="book-aside" data-reveal>
+          <p class="kicker" data-i18n="sr.bookKicker">Book a visit</p>
+          <h2 class="section-title" data-i18n="sr.bookTitle">A free one-to-one with a designer</h2>
+          <ul class="perks">
+            <li><b data-i18n="sr.p1">60 minutes just for you</b><span data-i18n="sr.p1Text">One client, one designer. No queues.</span></li>
+            <li><b data-i18n="sr.p2">Your configuration is waiting</b><span data-i18n="sr.p2Text">Build your sofa online and we’ll lay out samples of exactly those fabrics.</span></li>
+            <li><b data-i18n="sr.p3">A plan of your room</b><span data-i18n="sr.p3Text">Bring your measurements and we’ll find the model that fits perfectly.</span></li>
+            <li><b data-i18n="sr.p4">5% off on the day</b><span data-i18n="sr.p4Text">If you decide to order during your visit.</span></li>
+          </ul>
+        </div>
+
+        <div class="book-card" data-reveal style="--d: 0.08s">
+          <form class="form" id="bookForm" novalidate>
+            <fieldset>
+              <legend data-i18n="sr.fShowroom">Showroom</legend>
+              <div class="radio-cards radio-row" id="bkCity"></div>
+            </fieldset>
+            <fieldset class="field" data-group="date">
+              <legend data-i18n="sr.fDate">Date</legend>
+              <div class="day-strip" id="bkDays" role="radiogroup" data-i18n-attr="aria-label:sr.fDate" aria-label="Date"></div>
+            </fieldset>
+            <fieldset class="field" data-group="time">
+              <legend data-i18n="sr.fTime">Time</legend>
+              <div class="slots" id="bkSlots" role="radiogroup" data-i18n-attr="aria-label:sr.fTime" aria-label="Time"></div>
+            </fieldset>
+            <fieldset>
+              <legend data-i18n="sr.fContact">Contact</legend>
+              <div class="form-row">
+                <label class="field"><span data-i18n="co.name">Full name</span><input name="name" autocomplete="name" required minlength="2" data-i18n-attr="placeholder:co.namePh" placeholder="Anna Schmidt"></label>
+                <label class="field"><span data-i18n="co.email">Email</span><input name="email" type="email" autocomplete="email" required placeholder="you@example.com"></label>
+              </div>
+              <label class="field"><span><span data-i18n="co.phone">Phone</span> <small data-i18n="sr.phoneOptional">optional, for an SMS reminder</small></span><input name="phone" type="tel" autocomplete="tel" placeholder="+49 30 1234567" data-phone></label>
+              <label class="check" id="bkCartWrap" hidden>
+                <input type="checkbox" name="withCart" checked>
+                <span><span data-i18n="sr.withCart">Prepare samples for my configuration</span> <small id="bkCartNote"></small></span>
+              </label>
+              <label class="check field-check"><input type="checkbox" name="consent" required><span data-i18n-html="sr.consent">I agree that Luna may use my details to arrange this visit, as described in the <a href="legal.html#privacy">privacy policy</a>.</span></label>
+            </fieldset>
+            <button class="cta" type="submit"><span class="cta-label" data-i18n="sr.submit">Book my visit</span><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <p class="fine" data-i18n="sr.demo">Demo form: the booking is only stored in your browser.</p>
+          </form>
+          <div class="book-done" id="bookDone" hidden></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="section-head" data-reveal>
+        <div>
+          <p class="kicker" data-i18n="faq.kicker">Questions</p>
+          <h2 class="section-title" data-i18n="faq.title">Frequently asked questions</h2>
+        </div>
+      </div>
+      <div class="faq" data-reveal>
+        <details open>
+          <summary data-i18n="faq.q1">How long does it take to make a sofa?</summary>
+          <p data-i18n="faq.a1">Two to six weeks depending on the fabric: linen 2–3 weeks, bouclé and velvet 3–4, leather 5–6. You get the exact date once your order is confirmed.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.q2">Is delivery really free?</summary>
+          <p data-i18n="faq.a2">Yes, to every EU country plus Norway, Switzerland and the UK: we deliver, carry it up, assemble it and take the packaging away. Rural addresses included.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.q3">Can I return a made-to-order sofa?</summary>
+          <p data-i18n="faq.a3">Custom furniture is exempt from the EU’s 14-day right of withdrawal, but we offer a 30-day return anyway. We collect it ourselves; you only pay 10% of the price to cover the tailoring.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.q4">What does the 10-year warranty cover?</summary>
+          <p data-i18n="faq.a4">The frame, the springs and all mechanisms. Fabric and filling are covered by the statutory 2-year EU guarantee. If anything happens, we repair it at your home.</p>
+        </details>
+        <details>
+          <summary data-i18n="faq.q5">How do instalments work?</summary>
+          <p data-i18n="faq.a5">Ten equal monthly payments at 0% APR through our payment partner. The first payment is taken when you order.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer"></footer>
+  <script type="module" src="js/showroom.js"></script>
+</body>
+</html>
